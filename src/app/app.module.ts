@@ -9,10 +9,14 @@ import { HomeComponent } from './home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { EntradaPropiaComponent } from './entradaPropia/entradaPropia.component';
+import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
+    EntradaPropiaComponent,
+    CrearEntradaComponent,
     AppComponent
   ],
   imports: [
@@ -22,7 +26,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
 
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' }
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'myentry', component: EntradaPropiaComponent },
+      { path: 'createEntry', component: CrearEntradaComponent }
     ])
   ],
   providers: [],
