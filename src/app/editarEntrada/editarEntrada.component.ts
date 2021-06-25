@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-crearEntrada',
-  templateUrl: './crearEntrada.component.html',
-  styleUrls: ['./crearEntrada.component.scss']
+  selector: 'app-editarEntrada',
+  templateUrl: './editarEntrada.component.html',
+  styleUrls: ['./editarEntrada.component.scss']
 })
-export class CrearEntradaComponent {
+export class EditarEntradaComponent {
 
   validatingForm: FormGroup;
 
