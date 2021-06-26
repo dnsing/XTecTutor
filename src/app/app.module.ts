@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { EntradaPropiaComponent } from './entradaPropia/entradaPropia.component';
 import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component';
+import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component'
     EntradaPropiaComponent,
     CrearEntradaComponent,
     EditarEntradaComponent,
+    EntradaAlguienComponent,
     AppComponent
   ],
   imports: [
@@ -32,7 +34,8 @@ import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component'
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'myentry', component: EntradaPropiaComponent },
       { path: 'createEntry', component: CrearEntradaComponent },
-      { path: 'editEntry', component: EditarEntradaComponent}
+      { path: 'editEntry', component: EditarEntradaComponent},
+      { path: 'othersEntry', component:EntradaAlguienComponent}
     ])
   ],
   providers: [],
