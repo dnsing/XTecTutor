@@ -5,6 +5,9 @@
     font-weight: 700;
     font-size: 35px;
 }
+.title1 {
+  color: whitesmoke;
+}
 .view {
     background: url("https://mdbootstrap.com/img/Photos/Others/img (50).jpg")no-repeat center center;
     background-size: cover;
@@ -44,12 +47,12 @@ box-shadow: 0 0 0 0 !important;
 
 .login_btn{
 color: black;
-background-color: #5087ee;
+background-color: #f5f5f5;
 width: 100px;
 }
 
 .login_btn:hover{
 color: black;
-background-color: white;
+background-color: rgb(211, 211, 211);
 }
   

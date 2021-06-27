@@ -1,23 +1,24 @@
 <div class= "view">
   <h1 class="title" style="text-align: left;">
-    {{title}}
+    XTecTutor
   </h1>
   <div style="text-align: center;">
     <div >
-      <form action="">
-      <input type="text" name= "User" placeholder="User">
-      <input type="text" name= "Password" placeholder="Password">
-    </form>
+      <form [formGroup]="LogInForm" (submit)="onSubmit(LogInForm.value)" action="">
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">User</mat-label>
+            <input class="title1" matInput type="User">
+        </mat-form-field> 
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">Password</mat-label>
+            <input class="title1" matInput type="password" [type]="hidePassword? 'password':'text' ">
+            <i class="material-icons"  matSuffix (click)="hidePassword = !hidePassword">
+              {{hidePassword? 'visibility':'visibility_off'}}
+            </i>
+        </mat-form-field> 
+      </form>
   </div>
-  <button class="login_btn" (click)= "singIn()" >   Sing in 
-    <!-- <div *ngIf="singIn()"></div>  
-  <links>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item waves-light" mdbWavesEffect>
-          <a class="nav-link" [routerLink]="['/home']"></a>
-        </li>
-      </ul>
-    </links> -->
+  <button class="login_btn" (click)= "singIn()" >   Log in 
    </button>
   </div>
 </div>
