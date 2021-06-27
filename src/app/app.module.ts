@@ -40,7 +40,7 @@ import { loginComponent } from './login/login.component';
     RouterModule.forRoot([
       { path: '', component:loginComponent, pathMatch: 'full'},
       { path: 'home', component: HomeComponent },
-      { path: 'myentry', component: EntradaPropiaComponent },
+      { path: 'myEntry', component: EntradaPropiaComponent },
       { path: 'createEntry', component: CrearEntradaComponent },
       { path: 'editEntry', component: EditarEntradaComponent},
       { path: 'othersEntry', component:EntradaAlguienComponent},

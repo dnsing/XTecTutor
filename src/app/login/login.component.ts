@@ -33,7 +33,7 @@ export class loginComponent implements OnInit {
   onSubmit(formData: any){
   }
 
-  singIn(){
+  logIn(){
     this.router.navigateByUrl('home');
   }
 }
