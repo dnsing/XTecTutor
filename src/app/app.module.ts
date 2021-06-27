@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule} from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +15,8 @@ import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component';
 import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.component';
 import { loginComponent } from './login/login.component';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { loginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    MatInputModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
