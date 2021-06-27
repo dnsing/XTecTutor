@@ -1,0 +1,29 @@
+<div class= "view">
+  <h1 class="title" style="text-align: left;">
+    XTecTutor
+  </h1>
+  <div style="text-align: center;">
+    <div >
+      <form [formGroup]="cambioContrForm" (submit)="onSubmit(cambioContrForm.value)" action=""> 
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">New Password</mat-label>
+            <input class="title1" matInput type="Newpassword" [type]="hideNewPassword? 'password':'text' ">
+            <i class="material-icons"  matSuffix (click)="hideNewPassword = !hideNewPassword">
+              {{hideNewPassword? 'visibility':'visibility_off'}}
+            </i>
+        </mat-form-field> 
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">NewPasswordVerify</mat-label>
+            <input class="title1" matInput type="NewPasswordVerify" [type]="hideNewPasswordVerify? 'password':'text' ">
+            <i class="material-icons"  matSuffix (click)="hideNewPasswordVerify = !hideNewPasswordVerify">
+              {{hideNewPasswordVerify? 'visibility':'visibility_off'}}
+            </i>
+        </mat-form-field> 
+      </form>
+  </div>
+  <button class="login_btn" (click)= "cambioContr(true)" > Save 
+   </button>
+   <button class="login_btn1" (click)= "cambioContr(false)" > Cancel 
+  </button>
+  </div>
+</div>
