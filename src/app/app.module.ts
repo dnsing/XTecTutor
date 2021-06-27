@@ -13,6 +13,7 @@ import { EntradaPropiaComponent } from './entradaPropia/entradaPropia.component'
 import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component';
 import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.compone
     MDBBootstrapModule.forRoot(),
     FormsModule,
     ReactiveFormsModule, 
+    HttpClientModule,
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
