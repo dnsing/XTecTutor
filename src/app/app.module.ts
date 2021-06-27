@@ -13,15 +13,18 @@ import { EntradaPropiaComponent } from './entradaPropia/entradaPropia.component'
 import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component';
 import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.component';
+import { loginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
+
+    loginComponent,
     HomeComponent,
     EntradaPropiaComponent,
     CrearEntradaComponent,
     EditarEntradaComponent,
     EntradaAlguienComponent,
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,11 +34,13 @@ import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.compone
     ReactiveFormsModule, 
 
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: '', component:loginComponent, pathMatch: 'full'},
+      { path: 'home', component: HomeComponent },
       { path: 'myentry', component: EntradaPropiaComponent },
       { path: 'createEntry', component: CrearEntradaComponent },
       { path: 'editEntry', component: EditarEntradaComponent},
-      { path: 'othersEntry', component:EntradaAlguienComponent}
+      { path: 'othersEntry', component:EntradaAlguienComponent},
+      
     ])
   ],
   providers: [],
