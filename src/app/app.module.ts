@@ -55,7 +55,7 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
       { path: 'busquedaRelevancia', component: busquedaRelevanciaComponent },
       { path: 'busquedaFecha', component: busquedaFechaComponent },
       { path: 'perfilEstudiante', component: PerfilEstudianteComponent },
-      { path: 'myEntry', component: EntradaPropiaComponent },
+      { path: 'myEntry2', component: EntradaPropiaComponent },
       { path: 'createEntry', component: CrearEntradaComponent },
       { path: 'editEntry', component: EditarEntradaComponent},
       { path: 'cambioContr', component: cambioContrComponent},
