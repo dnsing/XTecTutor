@@ -76,9 +76,9 @@
             </div>      
 
             <div class="list-group">
-              <a *ngFor="let element of listAutores" class="list-group-item list-group-item-dark black-text">{{element.carnet}} </a>
-              <button mdbBtn type="button" color="default" mdbWavesEffect>Right<mdb-icon fas icon="magic" class="ml-1"></mdb-icon></button>
-
+              <a *ngFor="let element of listAutores, let i = index" class="list-group-item list-group-item-dark black-text">{{element.carnet}}  
+                <button (click)='deleteAutor(i)' mdbBtn type="button" color="default" mdbWavesEffect><mdb-icon fas icon="trash" class="ml-1"></mdb-icon></button>
+              </a>
             </div>
             
             <!--Modal-->
@@ -124,7 +124,7 @@
               <option value="false">Privado</option>
             </select>
             
-            <button (click)="editEntry()" mdbBtn type="button" color="indigo" mdbWavesEffect>Listo<mdb-icon fas icon="check" class="ml-1"></mdb-icon></button>
+            <button (click)="editEntry()" [routerLink]="['/perfilEstudiante']"   mdbBtn type="button" color="indigo" mdbWavesEffect>Listo<mdb-icon fas icon="check" class="ml-1"></mdb-icon></button>
 
             <br>
           </div>
