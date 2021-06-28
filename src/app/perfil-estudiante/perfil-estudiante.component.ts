@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { EntradaPropiaComponent } from '../entradaPropia/entradaPropia.component';
 import { Student } from '../Models/student.model';
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
-import { ApicomplementosService } from '../services/apicomplementos.service';
 import { UserService } from '../Services/login.service';
 
 @Component({
