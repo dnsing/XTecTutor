@@ -16,7 +16,7 @@ import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component'
 import { EntradaAlguienComponent } from './entradaAlguien/entradaAlguien.component';
 import { loginComponent } from './login/login.component';
 import { busquedaFechaComponent } from './busquedafecha/busquedafecha.component';
-//import { busquedaRelevanciaComponent } from './busquedaRelevancia/busquedaRelevancia.component';
+import { busquedaRelevanciaComponent } from './busquedaRelevancia/busquedaRelevancia.component';
 import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 import { cambioContrComponent } from './cambioContr/cambioContr.component';
 
@@ -34,7 +34,7 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
     EntradaAlguienComponent,
     AppComponent,
     busquedaFechaComponent,
-    //busquedaRelevanciaComponent,
+    busquedaRelevanciaComponent,
     PerfilEstudianteComponent,
   ],
   imports: [
@@ -48,7 +48,7 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
     RouterModule.forRoot([
       { path: '', component:loginComponent, pathMatch: 'full'},
       { path: 'home', component: HomeComponent },
-      //{ path: 'busquedaRelevancia', component: busquedaRelevanciaComponent },
+      { path: 'busquedaRelevancia', component: busquedaRelevanciaComponent },
       { path: 'busquedaFecha', component: busquedaFechaComponent },
       { path: 'perfilEstudiante', component: PerfilEstudianteComponent },
       { path: 'myEntry', component: EntradaPropiaComponent },

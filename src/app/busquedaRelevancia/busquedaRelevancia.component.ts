@@ -3,11 +3,11 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-busquedaFecha',
-  templateUrl: './busquedaFecha.component.html',
-  styleUrls: ['./busquedaFecha.component.scss']
+  selector: 'app-busquedaRelevancia',
+  templateUrl: './busquedaRelevancia.component.html',
+  styleUrls: ['./busquedaRelevancia.component.scss']
 })
-export class busquedaFechaComponent implements OnInit{
+export class busquedaRelevanciaComponent implements OnInit{
   listCatalogo:string[];
   listAutor:string[];
   listFechaCreado:string[];
@@ -31,9 +31,9 @@ export class busquedaFechaComponent implements OnInit{
     this.listVistas=[];
     this.listComentarios=[];
     this.listCalificacion=[];
-    this.e1=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera, curso, tema"];
-    this.e2=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera"];
-    this.e3=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera, curso"];
+    this.e1=["titulo","fechCrea","fechaMod","vistas","coment","relevancia","calif","carrera, curso, tema"];
+    this.e2=["titulo","fechCrea","fechaMod","vistas","coment","relevancia","calif","carrera"];
+    this.e3=["titulo","fechCrea","fechaMod","vistas","coment","relevancia","calif","carrera, curso"];
     this.listE=[this.e1,this.e2,this.e3]
   }
   ngOnInit(): void {

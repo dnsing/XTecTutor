@@ -37,9 +37,9 @@ export class cambioContrComponent implements OnInit {
   cambioContr(estado){
 
     if (estado){
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('perfilEstudiante');
     }else{
-      this.router.navigateByUrl('myEntry');
+      this.router.navigateByUrl('perfilEstudiante');
     }
     
     
