@@ -30,9 +30,8 @@ export class CrearEntradaComponent implements OnInit{
   constructor(
     private apicomplementos: ApicomplementosService,
     private apiEntradaPropia: ApiEntradaPropiaService,
-    private apilogin: UserService
-
-  ){}
+    private apilogin: UserService,
+  ){  }
 
   validatingForm: FormGroup;
 

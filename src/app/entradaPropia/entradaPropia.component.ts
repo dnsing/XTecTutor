@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { loginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
 import { UserService } from '../services/login.service';
 
@@ -15,7 +15,7 @@ export class EntradaPropiaComponent implements OnInit{
   public curso = ''
   public fechaCrear = ''
   public fechaMod = ''
-  public idEntrada = 0
+  public idEntrada = ''
   public tema = ''
   public vistas = 0
   public calificacion = ''
@@ -27,8 +27,12 @@ export class EntradaPropiaComponent implements OnInit{
 
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
-    private apilogin: UserService
-  ){}
+    private apilogin: UserService,
+    private router: Router
+  ){
+    this.idEntrada =this.router.getCurrentNavigation().extras.state.example;
+
+  }
 
 
   ngOnInit(): void {
@@ -37,7 +41,7 @@ export class EntradaPropiaComponent implements OnInit{
   }
 
   getEntry(){
-    this.apiEntradaPropia.getEntry("1").subscribe((reply:any) => {
+    this.apiEntradaPropia.getEntry(this.idEntrada).subscribe((reply:any) => {
       console.log(reply);
 
       this.abstract = reply.Abstract;

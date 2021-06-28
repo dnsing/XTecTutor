@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import { Router } from '@angular/router';
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
 import { ApicomplementosService } from '../services/apicomplementos.service';
 import { UserService } from '../Services/login.service';
@@ -18,7 +19,7 @@ export class EditarEntradaComponent implements OnInit
   public curso = ''
   public fechaCrear = ''
   public fechaMod = ''
-  public idEntrada = 0
+  public idEntrada = ''
   public tema = ''
   public vistas = 0
   public calificacion = ''
@@ -36,8 +37,12 @@ export class EditarEntradaComponent implements OnInit
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
     private apicomplementos: ApicomplementosService,
-    private apilogin: UserService
-  ){}
+    private apilogin: UserService,
+    private router: Router
+  ){
+    this.idEntrada = this.router.getCurrentNavigation().extras.state.example;
+
+  }
 
 
   validatingForm: FormGroup;
@@ -54,7 +59,7 @@ export class EditarEntradaComponent implements OnInit
   }
 
   getEntry(){
-    this.apiEntradaPropia.getEntry("1").subscribe((reply:any) => {
+    this.apiEntradaPropia.getEntry(this.idEntrada).subscribe((reply:any) => {
       console.log(reply);
 
       this.titulo = reply.titulo;
@@ -103,7 +108,7 @@ export class EditarEntradaComponent implements OnInit
     console.log(this.tema)
     console.log(this.visible.toString())
 
-    this.apiEntradaPropia.editEntry('1', this.titulo, this.abstract, this.body, this.listCarnet.join(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
+    this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, this.listCarnet.join(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
       console.log(reply)
       //CAMBIAR ESE 1, SE TIENE QUE COORDINAR CON KEVIN
   });

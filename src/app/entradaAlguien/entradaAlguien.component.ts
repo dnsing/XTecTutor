@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ApicomentariosService } from '../services/apicomentarios.service';
 import { UserService } from '../Services/login.service';
 import { ApicalificacionService } from '../services/apicalificacion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entradaAlguien',
@@ -18,7 +19,7 @@ export class EntradaAlguienComponent implements OnInit{
   public curso = ''
   public fechaCrear = ''
   public fechaMod = ''
-  public idEntrada = 0
+  public idEntrada = ''
   public tema = ''
   public vistas = 0
   public calificacion = ''
@@ -35,7 +36,8 @@ export class EntradaAlguienComponent implements OnInit{
     private apiEntradaPropia: ApiEntradaPropiaService,
     private apicomentario: ApicomentariosService,
     private apilogin: UserService,
-    private apicalificacion: ApicalificacionService
+    private apicalificacion: ApicalificacionService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -46,7 +48,7 @@ export class EntradaAlguienComponent implements OnInit{
   }
 
   getEntry(){
-    this.apiEntradaPropia.getEntry("1").subscribe((reply:any) => {
+    this.apiEntradaPropia.getEntry(this.idEntrada).subscribe((reply:any) => {
       console.log(reply);
 
       this.abstract = reply.Abstract;
@@ -71,13 +73,13 @@ export class EntradaAlguienComponent implements OnInit{
     var comment = (<HTMLInputElement>document.getElementById('comment')).value;
     console.log(comment)
 
-    this.apicomentario.postComment('1', Object(this.user)["Carnet"], comment).subscribe((reply:any) => {
+    this.apicomentario.postComment(this.idEntrada, Object(this.user)["Carnet"], comment).subscribe((reply:any) => {
       console.log(reply)
     });
   }
   
   setRating(){
-    this.apicalificacion.postRating("1", Object(this.user)["Carnet"], this.nuevaCalificacion).subscribe((reply:any) => {
+    this.apicalificacion.postRating(this.idEntrada, Object(this.user)["Carnet"], this.nuevaCalificacion).subscribe((reply:any) => {
       console.log(reply)
       console.log(this.nuevaCalificacion)
     });
