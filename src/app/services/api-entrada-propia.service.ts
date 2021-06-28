@@ -17,10 +17,11 @@ export class ApiEntradaPropiaService {
       .set('idEntrada', entryId)
     return this._http.get(this.url+httpParams);
   }
-
-  editEntry(entryId: string,  abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
+//https://localhost:44395/api/Entrada?IdEntrada=id&titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0&visible=true
+  editEntry(entryId: string, titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
     const httpParams = new HttpParams()
       .set('IdEntrada', entryId)
+      .set('titulo', titulo)
       .set('Abstract', abstract)      
       .set('Body', body)
       .set('autores', autores)
@@ -30,7 +31,7 @@ export class ApiEntradaPropiaService {
       .set('visible', visible)
     return this._http.patch(this.url+httpParams, {});
   }
-
+//https://localhost:44395/api/Entrada?titulo=dad&Abstract=caca&Body=fafa&autores=2017&IdCarrera=carrera3&Curso=cursoY1&IdTema=carrera1 
 //https://localhost:44395/api/Entrada?titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0
   postEntry(titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, IdTema: string){
     const httpParams = new HttpParams()
@@ -40,6 +41,7 @@ export class ApiEntradaPropiaService {
       .set('autores', autores)
       .set('IdCarrera', IdCarrera)
       .set('Curso', curso)
+      .set('IdTema', IdTema)
 
     return this._http.post(this.url+httpParams, {});
   }

@@ -38,7 +38,7 @@
             <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
               mdbWavesEffect></button>
             <div class="dropdown-menu">
-              <a *ngFor="let element of listCarreras" class="dropdown-item">{{element.Nombre}}</a>
+              <a id="carrera" *ngFor="let element of listCarreras" class="dropdown-item">{{element.Nombre}}</a>
             </div>
           </div>
 
@@ -71,7 +71,7 @@
             </div>      
 
             <div class="list-group">
-              <a *ngFor="let element of listAutores" class="list-group-item list-group-item-dark black-text">{{element.nombre}} {{element.carnet}}</a>
+              <a *ngFor="let element of listAutores" class="list-group-item list-group-item-dark black-text">{{element.carnet}}</a>
             </div>
             
             <!--Modal-->

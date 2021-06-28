@@ -71,7 +71,7 @@ export class EditarEntradaComponent implements OnInit
     var body = (<HTMLInputElement>document.getElementById('body')).value;
     console.log(body);
 
-    this.apiEntradaPropia.editEntry('1',abstract, body, '2017', '0', '0', '0','true').subscribe((reply:any) => {
+    this.apiEntradaPropia.editEntry('1', 'titulo', abstract, body, '2017', '0', '0', '0','true').subscribe((reply:any) => {
       console.log(reply)
   });
 

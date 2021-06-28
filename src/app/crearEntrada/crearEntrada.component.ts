@@ -14,8 +14,9 @@ export class CrearEntradaComponent implements OnInit{
   public body = ''
   public visible = ''
   public vistas = 0
-  public carrera = 0
+  public carrera = ''
   public curso = ''
+  public tema = ''
   
 
   public listCarreras = [];
@@ -55,16 +56,32 @@ export class CrearEntradaComponent implements OnInit{
       this.listTemas = reply;
     });
   }
-//titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, IdTema: string
-  /*postEntry(){
-    var abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
-    var body = (<HTMLInputElement>document.getElementById('body')).value;
 
-    this.apiEntradaPropia.postEntry('titulo', ).subscribe((reply:any) => {
+  getCarrera(i){
+    this.carrera = this.listCarreras[i].IdCarrera;
+  }
+
+  getCurso(i){
+    this.curso = this.listCursos[i].Nombre;
+  }
+
+  getTema(i){
+    this.tema = this.listTemas[i].IdTema;
+  }
+
+//https://localhost:44395/api/Entrada?titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0
+//https://localhost:44395/api/Entrada?titulo=dad&Abstract=caca&Body=fafa&autores=2017&IdCarrera=carrera3&Curso=cursoY1&IdTema=carrera1 
+//titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, IdTema: string
+  postEntry(){
+    this.titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
+    this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
+    this.body = (<HTMLInputElement>document.getElementById('body')).value;
+
+    this.apiEntradaPropia.postEntry(this.titulo, this.abstract, this.body, "2017", this.carrera, this.curso, this.tema).subscribe((reply:any) => {
 
     });
   }
-*/
+
   get loginFormModalEmail() {
     return this.validatingForm.get('loginFormModalEmail');
   }
