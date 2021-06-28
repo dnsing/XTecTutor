@@ -31,6 +31,7 @@ export class EditarEntradaComponent implements OnInit
   public listTemas = [];
 
   public user: any[];
+  public listCarnet = [];
   
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
@@ -79,13 +80,37 @@ export class EditarEntradaComponent implements OnInit
     this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
     this.body = (<HTMLInputElement>document.getElementById('body')).value;
 
-    this.apiEntradaPropia.editEntry('1', this.titulo, this.abstract, this.body, this.listAutores.join(), this.carrera, this.curso, this.tema, this.visible).subscribe((reply:any) => {
+    for(let i in this.listAutores){
+      this.listCarnet.push(this.listAutores[i].carnet);
+    }
+    for(let i in this.listCarreras){
+      if (this.carrera == this.listCarreras[i].Nombre){
+        this.carrera = this.listCarreras[i].IdCarrera;
+      }
+    }
+    for(let i in this.listTemas){
+      if (this.tema == this.listTemas[i].Nombre){
+        this.tema = this.listTemas[i].IdTema;
+      }
+    }
+    console.log(this.titulo)
+    console.log(this.abstract)
+    console.log(this.body)
+    console.log(this.listCarnet.join())
+    console.log(this.carrera)
+    console.log(this.curso)
+    console.log(this.tema)
+    console.log(this.visible.toString())
+
+    this.apiEntradaPropia.editEntry('1', this.titulo, this.abstract, this.body, this.listCarnet.join(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
       console.log(reply)
       //CAMBIAR ESE 1, SE TIENE QUE COORDINAR CON KEVIN
-      //AGREGAR COLABORADOR
   });
 
 }
+  listcarnet(listcarnet: any) {
+    throw new Error('Method not implemented.');
+  }
 
 getComplementos(){
   //Cursos
@@ -105,6 +130,18 @@ getComplementos(){
     this.listTemas = reply;
   });
 }
+getCarrera(i){
+  this.carrera = this.listCarreras[i].IdCarrera;
+}
+
+getCurso(i){
+  this.curso = this.listCursos[i].Nombre;
+}
+
+getTema(i){
+  this.tema = this.listTemas[i].IdTema;
+}
+
 
   get loginFormModalEmail() {
     return this.validatingForm.get('loginFormModalEmail');
