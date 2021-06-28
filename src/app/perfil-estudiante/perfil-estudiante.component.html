@@ -28,22 +28,33 @@
   
       </links>
     </mdb-navbar>
-    <!-- Main -->
+
+    <div class="container-fluid">
+      <div class="row"><p>hola</p></div>
+      <div class="row"><p>hola2</p></div>
+      <div class="row">
+        <div class="col-3">
+          <div class="infoEst"><p>{{nombreEstudiante()}}</p></div>  
+          <div class="infoEst"><p>{{carnet()}}</p></div>
+          <div class="infoEst"><p>{{correo()}}</p></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button class="button1" (click)= "cambioContr()" > Cambiar contraseña</button>
+        </div>
+      </div>
+    </div>
+
     <div class="view">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
           <div class="container text-center white-text">
             <div class="white-text text-center wow fadeInUp">
-              <h2>Proximamente perfil de estudiante</h2>
-              <br>
-              <div>
-                <button class="login_btn" (click)= "cambioContr()" > Cambiar contraseña</button>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- /.Main -->
   </header>
   

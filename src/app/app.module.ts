@@ -22,6 +22,7 @@ import { busquedaFechaComponent } from './busquedafecha/busquedafecha.component'
 import { busquedaRelevanciaComponent } from './busquedaRelevancia/busquedaRelevancia.component';
 import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 import { cambioContrComponent } from './cambioContr/cambioContr.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 
@@ -39,6 +40,7 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
     busquedaFechaComponent,
     busquedaRelevanciaComponent,
     PerfilEstudianteComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
     RouterModule.forRoot([
       { path: '', component:loginComponent, pathMatch: 'full'},
       { path: 'home', component: HomeComponent },
+      { path: 'adminHome', component: AdminHomeComponent },
       { path: 'busquedaRelevancia', component: busquedaRelevanciaComponent },
       { path: 'busquedaFecha', component: busquedaFechaComponent },
       { path: 'perfilEstudiante', component: PerfilEstudianteComponent },

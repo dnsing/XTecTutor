@@ -3,13 +3,19 @@
     background-size: cover;
     height: 100vh;
   }
-  .login_btn{
+
+  .button1 {
+    background-color:rgb(255, 255, 255) ;
     color: black;
-    background-color: #f5f5f5;
-    width: 150px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+  }
+  .button1:hover{
+    color: black;
+    background-color: rgb(156, 255, 143);
+    border-radius: 8px;
     }
-    
-    .login_btn:hover{
-    color: black;
-    background-color: rgb(211, 211, 211);
+
+    .infoEst{
+      color: white
     }

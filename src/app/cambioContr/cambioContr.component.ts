@@ -1,11 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Md5} from 'ts-md5/dist/md5';
-
-//import { UsercambioContrService } from '../services/user-cambioContr.service';
-//import { StudentCourseService } from './../Student/student-services/student-course.service';
-//import { StudentService } from './../Student/student-services/student.service';
 
 @Component({
   selector: 'app-cambioContr',
@@ -16,15 +11,15 @@ export class cambioContrComponent implements OnInit {
   hideNewPassword= true;
   hideNewPasswordVerify= true;
 
-  userType: number = 1; 
   cambioContrForm: FormGroup;
   error: string;
+  verError: boolean;
 
 
   constructor(private formB: FormBuilder, private router: Router, /*private usercambioContrService: UsercambioContrService,private StudentService:StudentService*/) { 
     this.cambioContrForm = this.formB.group({
-    userID: [''],
-    password: ['']
+    newPassword: [''],
+    newPasswordVerify: ['']
     });
   }
 
@@ -32,6 +27,22 @@ export class cambioContrComponent implements OnInit {
   }
 
   onSubmit(formData: any){
+    console.log(formData)
+    if((formData.newPassword == '') || (formData.newPasswordVerify == '')){
+      this.error = 'Ambos espacios deben estar completados';
+      this.verError=true;
+
+    }else if( formData.newPassword != formData.newPasswordVerify){
+      this.error ='Error.Las contraseñas no son iguales';
+      this.verError=true;
+
+    }else{
+      console.log('Cambio de contraseña')
+      //this.userService.setUserLogged(this.usertoCheck);
+      this.router.navigate(['/perfilEstudiante']);
+      this.verError=false;
+
+    }
   }
 
   cambioContr(estado){
@@ -41,7 +52,13 @@ export class cambioContrComponent implements OnInit {
     }else{
       this.router.navigateByUrl('perfilEstudiante');
     }
-    
-    
+     
   }
+  mostrarError(){ 
+    return this.verError;
+   }
+
+   mostrarErrores(){
+     return this.error;
+   }
 }
