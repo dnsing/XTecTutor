@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
 import { ApicomplementosService } from '../services/apicomplementos.service';
+import { UserService } from '../Services/login.service';
 
 @Component({
   selector: 'app-crearEntrada',
@@ -22,10 +23,15 @@ export class CrearEntradaComponent implements OnInit{
   public listCarreras = [];
   public listCursos = [];
   public listTemas = [];
+  public listAutores = [];
+
+  public user: any[];
 
   constructor(
     private apicomplementos: ApicomplementosService,
     private apiEntradaPropia: ApiEntradaPropiaService,
+    private apilogin: UserService
+
   ){}
 
   validatingForm: FormGroup;
@@ -36,6 +42,9 @@ export class CrearEntradaComponent implements OnInit{
       loginFormModalPassword: new FormControl('', Validators.required)
     });
     this.getComplementos();
+    this.user = this.apilogin.userLogged;
+    this.listAutores.push(Object(this.user)["Carnet"])
+
   }
 
   getComplementos(){
@@ -77,7 +86,7 @@ export class CrearEntradaComponent implements OnInit{
     this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
     this.body = (<HTMLInputElement>document.getElementById('body')).value;
 
-    this.apiEntradaPropia.postEntry(this.titulo, this.abstract, this.body, "2017", this.carrera, this.curso, this.tema).subscribe((reply:any) => {
+    this.apiEntradaPropia.postEntry(this.titulo, this.abstract, this.body, this.listAutores.join(), this.carrera, this.curso, this.tema).subscribe((reply:any) => {
 
     });
   }

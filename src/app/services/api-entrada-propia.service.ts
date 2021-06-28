@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { reply } from '../models/reply'
-import { entrada } from '../models/entrada'
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +29,6 @@ export class ApiEntradaPropiaService {
       .set('visible', visible)
     return this._http.patch(this.url+httpParams, {});
   }
-//https://localhost:44395/api/Entrada?titulo=dad&Abstract=caca&Body=fafa&autores=2017&IdCarrera=carrera3&Curso=cursoY1&IdTema=carrera1 
 //https://localhost:44395/api/Entrada?titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0
   postEntry(titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, IdTema: string){
     const httpParams = new HttpParams()

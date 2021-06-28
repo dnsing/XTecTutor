@@ -14,6 +14,6 @@ export class PerfilEstudianteComponent implements OnInit {
   ngOnInit(): void {
   }
   cambioContr(){
-    this.router.navigateByUrl('cambioContr');
+    this.router.navigateByUrl('myEntry2');
   }
 }

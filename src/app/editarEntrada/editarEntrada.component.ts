@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
 import { ApicomplementosService } from '../services/apicomplementos.service';
+import { UserService } from '../Services/login.service';
 
 @Component({
   selector: 'app-editarEntrada',
@@ -10,6 +11,7 @@ import { ApicomplementosService } from '../services/apicomplementos.service';
 })
 export class EditarEntradaComponent implements OnInit
 {
+  public titulo = ''
   public abstract = ''
   public body = ''
   public carrera = ''
@@ -20,16 +22,20 @@ export class EditarEntradaComponent implements OnInit
   public tema = ''
   public vistas = 0
   public calificacion = ''
+  public visible = ''
   public listAutores = []
   public listComentarios = []
 
   public listCarreras = [];
   public listCursos = [];
   public listTemas = [];
+
+  public user: any[];
   
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
-    private apicomplementos: ApicomplementosService
+    private apicomplementos: ApicomplementosService,
+    private apilogin: UserService
   ){}
 
 
@@ -42,12 +48,14 @@ export class EditarEntradaComponent implements OnInit
     });
     this.getEntry();
     this.getComplementos();
+    this.user = this.apilogin.userLogged;
   }
 
   getEntry(){
     this.apiEntradaPropia.getEntry("1").subscribe((reply:any) => {
       console.log(reply);
 
+      this.titulo = reply.titulo;
       this.abstract = reply.Abstract;
       this.body = reply.Body;
       this.carrera = reply.Carrera;
@@ -58,6 +66,7 @@ export class EditarEntradaComponent implements OnInit
       this.tema = reply.Tema;
       this.vistas = reply.Vistas;
       this.calificacion = reply.calificacion;
+      this.visible = reply.Visible;
       this.listAutores = reply.listaAutores;
       this.listComentarios = reply.listaComentario;
 
@@ -65,14 +74,15 @@ export class EditarEntradaComponent implements OnInit
   }
 
   editEntry(){
-    var abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
-    console.log(abstract);
+    //https://localhost:44395/api/Entrada?IdEntrada=id&titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0&visible=true
+    this.titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
+    this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
+    this.body = (<HTMLInputElement>document.getElementById('body')).value;
 
-    var body = (<HTMLInputElement>document.getElementById('body')).value;
-    console.log(body);
-
-    this.apiEntradaPropia.editEntry('1', 'titulo', abstract, body, '2017', '0', '0', '0','true').subscribe((reply:any) => {
+    this.apiEntradaPropia.editEntry('1', this.titulo, this.abstract, this.body, this.listAutores.join(), this.carrera, this.curso, this.tema, this.visible).subscribe((reply:any) => {
       console.log(reply)
+      //CAMBIAR ESE 1, SE TIENE QUE COORDINAR CON KEVIN
+      //AGREGAR COLABORADOR
   });
 
 }

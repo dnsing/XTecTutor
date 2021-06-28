@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { loginComponent } from '../login/login.component';
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
+import { UserService } from '../services/login.service';
 
 @Component({
   selector: 'app-entradaPropia',
@@ -19,15 +21,19 @@ export class EntradaPropiaComponent implements OnInit{
   public calificacion = ''
   public listAutores = []
   public listComentarios = []
+
+  public user: any[];
   
 
   constructor(
-    private apiEntradaPropia: ApiEntradaPropiaService
+    private apiEntradaPropia: ApiEntradaPropiaService,
+    private apilogin: UserService
   ){}
 
 
   ngOnInit(): void {
     this.getEntry();
+    this.user = this.apilogin.userLogged;
   }
 
   getEntry(){
