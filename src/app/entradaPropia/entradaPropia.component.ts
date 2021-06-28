@@ -47,7 +47,6 @@ export class EntradaPropiaComponent implements OnInit{
       this.listAutores = reply.listaAutores;
       this.listComentarios = reply.listaComentario;
 
-      console.log(this.listAutores[1])
     });
   }
 }
