@@ -41,21 +41,13 @@ export class UserService {
  * @param userold viejo user
  * @param img 
  */
-/* modifyUser(user: User, userold : User, img : string | ArrayBuffer){
+ modifyUser(carnet:number, password:string){
     const params = new HttpParams()
-    .set('nombreusuario', userold["nombreusuario"])
-    .set('password', user.password)
-    .set('fname', user.fname)
-    .set('mname', user.mname)
-    .set('lname', user.lname)
-    .set('nacionalidad', user.nationality);
-    console.log(user);
-    console.log(userold);
-    if (img == null){
-      img = "null";
-    }
-    console.log({'file': img.toString()});
-    this.http.patch(this.BaseUrl +'?' + params.toString(),{'file': img.toString()}).subscribe(data => {
+    .set('carnet', carnet)
+    .set('clave', password);
+
+    
+    this.http.patch(this.estudianteUrl +'?' + params.toString(),{}).subscribe(data => {
       console.log(data);
     }) 
     

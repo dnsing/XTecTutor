@@ -21,6 +21,11 @@
         <div class="form-group">
 
           <input type="submit" value="Entrar" class="btn float-center login_btn">
+          <div *ngIf="mostrarError()" class="tag">
+            <p>
+              {{mostrarErrores()}}
+            </p>
+          </div>
         </div> 
       </form>
   </div>

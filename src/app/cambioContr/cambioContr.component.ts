@@ -1,11 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Md5} from 'ts-md5/dist/md5';
-
-//import { UsercambioContrService } from '../services/user-cambioContr.service';
-//import { StudentCourseService } from './../Student/student-services/student-course.service';
-//import { StudentService } from './../Student/student-services/student.service';
+import { Student } from '../Models/student.model';
+import { UserService } from '../Services/login.service';
 
 @Component({
   selector: 'app-cambioContr',
@@ -16,22 +13,40 @@ export class cambioContrComponent implements OnInit {
   hideNewPassword= true;
   hideNewPasswordVerify= true;
 
-  userType: number = 1; 
   cambioContrForm: FormGroup;
   error: string;
+  verError: boolean;
+  user: Student;
 
 
-  constructor(private formB: FormBuilder, private router: Router, /*private usercambioContrService: UsercambioContrService,private StudentService:StudentService*/) { 
+  constructor(private formB: FormBuilder, private router: Router, private UserService: UserService) { 
     this.cambioContrForm = this.formB.group({
-    userID: [''],
-    password: ['']
+    newPassword: [''],
+    newPasswordVerify: ['']
     });
   }
 
   ngOnInit(): void {
+    this.user=this.UserService.userLogged;
   }
 
   onSubmit(formData: any){
+    console.log(formData)
+    if((formData.newPassword == '') || (formData.newPasswordVerify == '')){
+      this.error = 'Ambos espacios deben estar completados';
+      this.verError=true;
+
+    }else if( formData.newPassword != formData.newPasswordVerify){
+      this.error ='Error.Las contraseñas no son iguales';
+      this.verError=true;
+
+    }else{
+      console.log('Cambio de contraseña')
+      this.UserService.modifyUser(this.user.Carnet, formData.newPassword);
+      this.router.navigate(['/perfilEstudiante']);
+      this.verError=false;
+
+    }
   }
 
   cambioContr(estado){
@@ -41,7 +56,13 @@ export class cambioContrComponent implements OnInit {
     }else{
       this.router.navigateByUrl('perfilEstudiante');
     }
-    
-    
+     
   }
+  mostrarError(){ 
+    return this.verError;
+   }
+
+   mostrarErrores(){
+     return this.error;
+   }
 }

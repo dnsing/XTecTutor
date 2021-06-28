@@ -15,9 +15,15 @@ export class ApiEntradaPropiaService {
       .set('idEntrada', entryId)
     return this._http.get(this.url+httpParams);
   }
+
+  getIdByCarnet(carnet: number){
+    const httpParams = new HttpParams()
+      .set('carnet', carnet)
+    return this._http.get<any[]>(this.url+httpParams);
+  }
   
-//https://localhost:44395/api/Entrada?IdEntrada=id&titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0&visible=true
-  editEntry(entryId: string, titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
+
+  editEntry(entryId: string,  titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
     const httpParams = new HttpParams()
       .set('IdEntrada', entryId)
       .set('titulo', titulo)
