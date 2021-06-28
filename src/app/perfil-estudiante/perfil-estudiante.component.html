@@ -29,7 +29,7 @@
       </links>
     </mdb-navbar>
 
-    <div class="container-fluid">
+    <div class="view ">
       <div class="row"><p>hola</p></div>
       <div class="row"><p>hola2</p></div>
       <div class="row">
@@ -44,14 +44,24 @@
           <button class="button1" (click)= "cambioContr()" > Cambiar contraseña</button>
         </div>
       </div>
-    </div>
+      <div class="row mybackground">
+        <div class="col align-self-center">
+          <div>
+            <div *ngFor="let elemento of e3; let i = index">
+            <div class="infoEst">Título: {{e3[i].titulo}} </div>
+            <div class="infoEst">Vistas: {{e3[i].Vistas}} </div>
+            <div class="infoEst">Calificación: {{e3[i].calificacion}} </div>
+            <div class="infoEst">Carrera: {{e3[i].Carrera}} </div>
+            <div class="infoEst">Curso: {{e3[i].Curso}} </div>
+            <div class="infoEst">Tema: {{e3[i].Tema}} </div>
+            <div class="infoEst">Visible: {{e3[i].Visible}} </div>
+            <div class="infoEst">FechaCreación: {{e3[i].FechaCrear}} </div>
+            <div class="infoEst">Visible: {{e3[i].Visible}} </div>
 
-    <div class="view">
-      <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
-          <div class="container text-center white-text">
-            <div class="white-text text-center wow fadeInUp">
+            <button class="button2" (click)= "verEntrada(e3[i].IdEntrada)" > Ver entrada</button>
+            <button class="button2" (click)= "editarEntrada(e3[i].IdEntrada)" > Editar entrada</button>
             </div>
+            
           </div>
         </div>
       </div>

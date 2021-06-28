@@ -18,6 +18,13 @@ export class ApiEntradaPropiaService {
     return this._http.get(this.url+httpParams);
   }
 
+  getIdByCarnet(carnet: number){
+    const httpParams = new HttpParams()
+      .set('carnet', carnet)
+    return this._http.get<any[]>(this.url+httpParams);
+  }
+  
+
   editEntry(entryId: string,  abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
     const httpParams = new HttpParams()
       .set('IdEntrada', entryId)

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EntradaPropiaComponent } from '../entradaPropia/entradaPropia.component';
 import { Student } from '../Models/student.model';
+import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
+import { ApicomplementosService } from '../services/apicomplementos.service';
 import { UserService } from '../Services/login.service';
 
 @Component({
@@ -11,12 +14,16 @@ import { UserService } from '../Services/login.service';
 export class PerfilEstudianteComponent implements OnInit {
   user: Student;
   nombreEst: string;
+  e3:any[];
 
-  constructor(private router: Router,private userService: UserService) { 
+  constructor(private router: Router,private userService: UserService, private ApiEntradaPropiaService: ApiEntradaPropiaService) { 
+    
   }
 
   ngOnInit(): void {
     this.user=this.userService.userLogged;
+    this.ApiEntradaPropiaService.getIdByCarnet(this.user.Carnet).subscribe(d=>
+      {this.e3=d ; console.log(d)});
   }
   carnet(){
     console.log(this.user.Carnet)
@@ -35,5 +42,11 @@ export class PerfilEstudianteComponent implements OnInit {
 
   cambioContr(){
     this.router.navigateByUrl('cambioContr');
+  }
+  verEntrada(entradaId){
+    this.router.navigateByUrl('myEntry2',{ state: { example: entradaId } });
+  }
+  editarEntrada(entradaId){
+    this.router.navigateByUrl('editEntry',{ state: { example: entradaId } });
   }
 }

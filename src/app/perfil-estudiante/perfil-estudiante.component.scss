@@ -15,7 +15,22 @@
     background-color: rgb(156, 255, 143);
     border-radius: 8px;
     }
-
-    .infoEst{
-      color: white
+    .button2 {
+      background-color:rgb(255, 255, 255) ;
+      color: black;
+      border: 2px solid #000000;
+      border-radius: 8px;
     }
+    .button2:hover{
+      color: black;
+      background-color: rgb(131, 184, 253);
+      border-radius: 8px;
+      }
+    .mybackground{
+      background-color: rgba(17, 17, 17, 0.699);
+      color: white;
+    }
+    .infoEst{
+      color: white;
+    }
+    

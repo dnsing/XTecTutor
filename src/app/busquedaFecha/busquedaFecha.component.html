@@ -26,28 +26,33 @@
         </ul>
       </links>
     </mdb-navbar>
-  <div class="view">
-    <div class="full-bg-img">
-      <div class="mask rgba-black-light flex-center">
-        <div class="container text-center white-text"> 
-          <div >
-            <p *ngFor="let elemento of e1; let i = index">{{e1[i]}}</p>
-            <button class="login_btn" (click)= "verEntrada()" > Ver entrada</button>
-          </div>
-          <div>
-            <p *ngFor="let elemento of e2; let i = index">{{e2[i]}}</p>
-            <button class="login_btn" (click)= "verEntrada()" > Ver entrada</button>
-          </div>
+    <div class="view ">
+      <div class="row"><p>hola</p></div>
+      <div class="row"><p>hola2</p></div>
+      <div class="row">
+        <div class="col-3">
+          <div class="infoEst"><p>{{"Carrera"}}</p></div>  
+          <div class="infoEst"><p>{{"Curso"}}</p></div>
+          <div class="infoEst"><p>{{"Tema"}}</p></div>
+        </div>
+      </div>
+      <div class="row mybackground">
+        <div class="col align-self-center">
           <div>
             <p *ngFor="let elemento of e3; let i = index">{{e3[i]}}</p>
-            <button class="login_btn" (click)= "verEntrada()" > Ver entrada</button>
-          </div>  
-
+            <button class="button2" (click)= "verEntrada()" > Ver entrada</button>
+          </div>
+          <div>
+            <p *ngFor="let elemento of e3; let i = index">{{e2[i]}}</p>
+            <button class="button2" (click)= "verEntrada()" > Ver entrada</button>
+          </div>
+          <div>
+            <p *ngFor="let elemento of e3; let i = index">{{e1[i]}}</p>
+            <button class="button2" (click)= "verEntrada()" > Ver entrada</button>
+          </div>
         </div>
-        
       </div>
     </div>
-  </div>
   
 </header>
 

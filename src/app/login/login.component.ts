@@ -42,7 +42,6 @@ export class loginComponent implements OnInit {
       
       this.usertoCheck = res;
       console.log(res)
-      console.log(this.usertoCheck[3])
       if(this.usertoCheck == 'No es estudiante ni admin'){
         this.error = 'No es estudiante ni admin';
         this.verError=true;
@@ -51,7 +50,7 @@ export class loginComponent implements OnInit {
         this.error ='Password incorrecta Estudiante';
         this.verError=true;
 
-      }else if(this.usertoCheck[3] == 'Apellido2'){
+      }else if(this.usertoCheck['Apellido2'] != null){
         console.log('Ingresando estudiante')
         this.userService.setUserLogged(this.usertoCheck);
         this.router.navigate(['/home']);

@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Student } from '../Models/student.model';
+import { UserService } from '../Services/login.service';
 
 @Component({
   selector: 'app-cambioContr',
@@ -14,9 +16,10 @@ export class cambioContrComponent implements OnInit {
   cambioContrForm: FormGroup;
   error: string;
   verError: boolean;
+  user: Student;
 
 
-  constructor(private formB: FormBuilder, private router: Router, /*private usercambioContrService: UsercambioContrService,private StudentService:StudentService*/) { 
+  constructor(private formB: FormBuilder, private router: Router, private UserService: UserService) { 
     this.cambioContrForm = this.formB.group({
     newPassword: [''],
     newPasswordVerify: ['']
@@ -24,6 +27,7 @@ export class cambioContrComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user=this.UserService.userLogged;
   }
 
   onSubmit(formData: any){
@@ -38,7 +42,7 @@ export class cambioContrComponent implements OnInit {
 
     }else{
       console.log('Cambio de contraseña')
-      //this.userService.setUserLogged(this.usertoCheck);
+      this.UserService.modifyUser(this.user.Carnet, formData.newPassword);
       this.router.navigate(['/perfilEstudiante']);
       this.verError=false;
 

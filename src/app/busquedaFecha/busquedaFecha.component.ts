@@ -31,9 +31,9 @@ export class busquedaFechaComponent implements OnInit{
     this.listVistas=[];
     this.listComentarios=[];
     this.listCalificacion=[];
-    this.e1=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera, curso, tema"];
+    this.e1=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera", "curso", "tema"];
     this.e2=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera"];
-    this.e3=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera, curso"];
+    this.e3=["titulo","fechCrea","fechaMod","vistas","coment","calif","carrera", "curso"];
     this.listE=[this.e1,this.e2,this.e3]
   }
   ngOnInit(): void {
