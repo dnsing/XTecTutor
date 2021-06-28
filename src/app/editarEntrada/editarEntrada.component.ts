@@ -170,7 +170,9 @@ deleteAutor(i){
    
   console.log(Carnets)
   
-  delete Carnets[i];
+  Carnets.splice(i);
+
+  console.log(Carnets)
   this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, Carnets[0].toString(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
     console.log(reply)
   });
