@@ -47,6 +47,7 @@ export class PerfilEstudianteComponent implements OnInit {
     this.router.navigateByUrl('myEntry2',{ state: { example: entradaId } });
   }
   editarEntrada(entradaId){
+    console.log(entradaId)
     this.router.navigateByUrl('editEntry',{ state: { example: entradaId } });
   }
 }

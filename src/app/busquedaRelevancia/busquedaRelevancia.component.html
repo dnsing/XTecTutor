@@ -30,6 +30,23 @@
     <div class="full-bg-img">
       <div class="mask rgba-black-light flex-center">
         <div class="container text-center white-text"> 
+
+
+          <div class="btn-group" mdbDropdown>
+  <button mdbDropdownToggle type="button" mdbBtn color="primary" class="dropdown-toggle waves-light"
+    mdbWavesEffect>
+    Basic dropdown
+  </button>
+
+  <div class="dropdown-menu dropdown-primary">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="divider dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+
           <div>
             <p *ngFor="let elemento of e1; let i = index">{{e1[i]}}</p>
             <button class="login_btn" (click)= "verEntrada()" > Ver entrada</button>
