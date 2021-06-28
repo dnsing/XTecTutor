@@ -50,6 +50,7 @@ export class EditarEntradaComponent implements OnInit
     this.getEntry();
     this.getComplementos();
     this.user = this.apilogin.userLogged;
+    
   }
 
   getEntry(){

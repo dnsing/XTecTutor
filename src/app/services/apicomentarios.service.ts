@@ -18,6 +18,6 @@ export class ApicomentariosService {
       .set('Carnet', carnet)
       .set('Contenido', comment)
       
-    return this._http.get(this.url+httpParams);
+    return this._http.post(this.url+httpParams, []);
   }
 }

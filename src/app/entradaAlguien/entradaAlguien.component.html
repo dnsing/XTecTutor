@@ -55,6 +55,47 @@
               </div>
               <p class="text-right">Ultima modificacion: {{fechaMod}} </p>
 
+              <!--Modal Calificar-->
+              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+        (click)="frame.show()" mdbWavesEffect>Calificar
+</button>
+
+<div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Escribir Comentario</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <select class="browser-default custom-select"  [(ngModel)]=nuevaCalificacion>
+          <option selected>Escoger Calificacion</option>
+          <option value="0">Cero</option>
+          <option value="1">Uno</option>
+          <option value="2">Dos</option>
+          <option value="3">Tres</option>
+          <option value="4">Cuatro</option>
+          <option value="5">Cinco</option>
+          <option value="6">Seis</option>
+          <option value="7">Siete</option>
+          <option value="8">Ocho</option>
+          <option value="9">Nueve</option>
+          <option value="10">Diez</option>
+        </select>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button (click)="setRating()"  mdbBtn color="indigo" class="waves-light" mdbWavesEffect>Listo
+          <mdb-icon far icon="paper-plane" class="ml-1"></mdb-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Modal Comentario-->
               <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
         (click)="frame.show()" mdbWavesEffect>Comentar
 </button>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiEntradaPropiaService } from '../services/api-entrada-propia.service';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { ApicomentariosService } from '../services/apicomentarios.service';
+import { UserService } from '../Services/login.service';
+import { ApicalificacionService } from '../services/apicalificacion.service';
 
 @Component({
   selector: 'app-entradaAlguien',
@@ -21,18 +23,26 @@ export class EntradaAlguienComponent implements OnInit{
   public vistas = 0
   public calificacion = ''
   public visible = ''
+  public nuevaCalificacion = ''
   public listAutores = []
   public listComentarios = []
+  public user: any[];
+
 
   validatingForm: FormGroup;
 
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
-    private apicomentario: ApicomentariosService
+    private apicomentario: ApicomentariosService,
+    private apilogin: UserService,
+    private apicalificacion: ApicalificacionService
   ){}
 
   ngOnInit(): void {
     this.getEntry();
+    this.user = this.apilogin.userLogged;
+    console.log(Object(this.user)["Carnet"])
+    console.log(this.user)
   }
 
   getEntry(){
@@ -61,7 +71,15 @@ export class EntradaAlguienComponent implements OnInit{
     var comment = (<HTMLInputElement>document.getElementById('comment')).value;
     console.log(comment)
 
-    this.apicomentario.postComment('1','2017',comment);
+    this.apicomentario.postComment('1', Object(this.user)["Carnet"], comment).subscribe((reply:any) => {
+      console.log(reply)
+    });
   }
-  //calificar FALTA
+  
+  setRating(){
+    this.apicalificacion.postRating("1", Object(this.user)["Carnet"], this.nuevaCalificacion).subscribe((reply:any) => {
+      console.log(reply)
+      console.log(this.nuevaCalificacion)
+    });
+  }
 }
