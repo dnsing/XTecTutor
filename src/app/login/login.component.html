@@ -1,0 +1,27 @@
+<div class= "view">
+  <h1 class="title" style="text-align: left;">
+    XTecTutor
+  </h1>
+  <div style="text-align: center;">
+    <div >
+      <form [formGroup]="LogInForm" (submit)="onSubmit(LogInForm.value)" action="">
+
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">User</mat-label>
+            <input class="title1" formControlName="userID" matInput type="User">
+        </mat-form-field> 
+
+        <mat-form-field class="example-full-width" >
+          <mat-label class="title1">Password</mat-label>
+            <input class="title1" formControlName="password" matInput type="password" [type]="hidePassword? 'password':'text' ">
+            <i class="material-icons"  matSuffix (click)="hidePassword = !hidePassword">
+              {{hidePassword? 'visibility':'visibility_off'}}
+            </i>
+        </mat-form-field>
+        <div class="form-group">
+          <input type="submit" value="Entrar" class="btn float-center login_btn">
+        </div> 
+      </form>
+  </div>
+  </div>
+</div>
