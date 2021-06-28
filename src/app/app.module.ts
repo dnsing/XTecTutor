@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EntradaPropiaComponent } from './entradaPropia/entradaPropia.component';
 import { CrearEntradaComponent } from './crearEntrada/crearEntrada.component';
 import { EditarEntradaComponent } from './editarEntrada/editarEntrada.component';
@@ -43,7 +44,8 @@ import { cambioContrComponent } from './cambioContr/cambioContr.component';
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule, 
 
     RouterModule.forRoot([
       { path: '', component:loginComponent, pathMatch: 'full'},
