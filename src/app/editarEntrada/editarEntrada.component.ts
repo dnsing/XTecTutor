@@ -33,6 +33,7 @@ export class EditarEntradaComponent implements OnInit
 
   public user: any[];
   public listCarnet = [];
+  carnets: any;
   
   constructor(
     private apiEntradaPropia: ApiEntradaPropiaService,
@@ -110,7 +111,6 @@ export class EditarEntradaComponent implements OnInit
 
     this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, this.listCarnet.join(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
       console.log(reply)
-      //CAMBIAR ESE 1, SE TIENE QUE COORDINAR CON KEVIN
   });
 
 }
@@ -146,6 +146,34 @@ getCurso(i){
 
 getTema(i){
   this.tema = this.listTemas[i].IdTema;
+}
+
+deleteAutor(i){
+  this.titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
+    this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
+    this.body = (<HTMLInputElement>document.getElementById('body')).value;
+    const Carnets = [];
+
+    for(let i in this.listAutores){
+      Carnets.push(this.listAutores[i].carnet);
+    }
+    for(let i in this.listCarreras){
+      if (this.carrera == this.listCarreras[i].Nombre){
+        this.carrera = this.listCarreras[i].IdCarrera;
+      }
+    }
+    for(let i in this.listTemas){
+      if (this.tema == this.listTemas[i].Nombre){
+        this.tema = this.listTemas[i].IdTema;
+      }
+    }
+   
+  console.log(Carnets)
+  
+  delete Carnets[i];
+  this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, Carnets[0].toString(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
+    console.log(reply)
+  });
 }
 
 
