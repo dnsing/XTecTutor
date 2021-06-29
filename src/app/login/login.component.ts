@@ -38,6 +38,11 @@ export class loginComponent implements OnInit {
 
   onSubmit(formData: any){
     console.log(formData)
+    if (formData.password.lenght == 0 || formData.userID == 0){
+      this.error ='Campos sin llenar';
+      this.verError=true;
+      return;
+    }
     this.userService.checkLogIn(formData.password, formData.userID ).subscribe(res => {
       
       this.usertoCheck = res;

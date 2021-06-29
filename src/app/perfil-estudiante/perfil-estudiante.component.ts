@@ -22,7 +22,9 @@ export class PerfilEstudianteComponent implements OnInit {
   ngOnInit(): void {
     this.user=this.userService.userLogged;
     this.ApiEntradaPropiaService.getIdByCarnet(this.user.Carnet).subscribe(d=>
-      {this.e3=d ; console.log(d)});
+      {
+        this.e3=d ; console.log(d)
+      });
   }
   carnet(){
     console.log(this.user.Carnet)
@@ -40,7 +42,7 @@ export class PerfilEstudianteComponent implements OnInit {
 
 
   cambioContr(){
-    this.router.navigateByUrl('myEntry2');
+    this.router.navigateByUrl('cambioContr',{ state: { example: this.user.Carnet } });
   }
   verEntrada(entradaId){
     this.router.navigateByUrl('myEntry2',{ state: { example: entradaId } });

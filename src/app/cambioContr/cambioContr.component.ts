@@ -40,6 +40,10 @@ export class cambioContrComponent implements OnInit {
       this.error ='Error.Las contraseñas no son iguales';
       this.verError=true;
 
+    }else if( formData.newPassword.length != 8 || formData.newPasswordVerify.length != 8){
+      this.error ='Error.La contraseña debe ser de a 8 caracteres alfanuméricos';
+      this.verError=true;
+
     }else{
       console.log('Cambio de contraseña')
       this.UserService.modifyUser(this.user.Carnet, formData.newPassword);
@@ -58,6 +62,7 @@ export class cambioContrComponent implements OnInit {
     }
      
   }
+  
   mostrarError(){ 
     return this.verError;
    }

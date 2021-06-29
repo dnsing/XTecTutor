@@ -26,7 +26,9 @@ export class EditarEntradaComponent implements OnInit
   public visible = ''
   public listAutores = []
   public listComentarios = []
-
+  public idCarrera = 0
+  public idCurso = "0"
+  public idTema = 0
   public listCarreras = [];
   public listCursos = [];
   public listTemas = [];
@@ -62,7 +64,6 @@ export class EditarEntradaComponent implements OnInit
   getEntry(){
     this.apiEntradaPropia.getEntry(this.idEntrada).subscribe((reply:any) => {
       console.log(reply);
-
       this.titulo = reply.titulo;
       this.abstract = reply.Abstract;
       this.body = reply.Body;
@@ -109,7 +110,7 @@ export class EditarEntradaComponent implements OnInit
     console.log(this.tema)
     console.log(this.visible.toString())
 
-    this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, this.listCarnet.join(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
+    this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, this.listCarnet.join(), this.idCarrera, this.idCurso, this.idTema, this.visible.toString()).subscribe((reply:any) => {
       console.log(reply)
   });
 
@@ -137,15 +138,18 @@ getComplementos(){
   });
 }
 getCarrera(i){
-  this.carrera = this.listCarreras[i].IdCarrera;
+  this.idCarrera = this.listCarreras[i].IdCarrera;
+  this.carrera = this.listCarreras[i].Nombre;
 }
 
 getCurso(i){
+  this.idCurso = this.listCursos[i].IdCurso;
   this.curso = this.listCursos[i].Nombre;
 }
 
 getTema(i){
-  this.tema = this.listTemas[i].IdTema;
+  this.idTema = this.listTemas[i].IdTema;
+  this.tema = this.listTemas[i].Nombre;
 }
 
 deleteAutor(i){
@@ -173,7 +177,7 @@ deleteAutor(i){
   Carnets.splice(i);
 
   console.log(Carnets)
-  this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, Carnets[0].toString(), this.carrera, this.curso, this.tema, this.visible.toString()).subscribe((reply:any) => {
+  this.apiEntradaPropia.editEntry(this.idEntrada, this.titulo, this.abstract, this.body, Carnets[0].toString(), this.idCarrera, this.idCurso, this.idCarrera, this.visible.toString()).subscribe((reply:any) => {
     console.log(reply)
   });
 }

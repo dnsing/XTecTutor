@@ -23,7 +23,7 @@ export class ApiEntradaPropiaService {
   }
   
 
-  editEntry(entryId: string,  titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, idTema: string, visible: string){
+  editEntry(entryId: string,  titulo: string, abstract: string, body: string, autores: string, IdCarrera: number, curso: string, idTema: number, visible: string){
     const httpParams = new HttpParams()
       .set('IdEntrada', entryId)
       .set('titulo', titulo)
@@ -37,7 +37,7 @@ export class ApiEntradaPropiaService {
     return this._http.patch(this.url+httpParams, {});
   }
 //https://localhost:44395/api/Entrada?titulo=eltitulo&Abstract=cacaca&Body=cacacacaca&autores=carnet1,carnet2&IdCarrera=1&Curso=0&IdTema=0
-  postEntry(titulo: string, abstract: string, body: string, autores: string, IdCarrera: string, curso: string, IdTema: string){
+  postEntry(titulo: string, abstract: string, body: string, autores: string, IdCarrera: number, curso: string, IdTema: number){
     const httpParams = new HttpParams()
       .set('titulo', titulo)
       .set('Abstract', abstract)

@@ -33,48 +33,50 @@
       <div class="mask rgba-black-light flex-center">
         <div class="container text-center white-text">
           
-          <div class="btn-group" mdbDropdown>
-            <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{carrera}}</button>
-            <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
-              mdbWavesEffect></button>
-            <div class="dropdown-menu">
-              <a (click)="getCarrera(i)"  *ngFor="let element of listCarreras, let i = index" class="dropdown-item">{{element.Nombre}}</a>
-            </div>
-          </div>
-
-          <div class="btn-group" mdbDropdown>
-            <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{curso}}</button>
-            <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
-              mdbWavesEffect></button>
-            <div class="dropdown-menu">
-              <<a (click)="getCurso(i)" *ngFor="let element of listCursos, let i = index" class="dropdown-item">{{element.Nombre}}</a>            </div>
-          </div>
-
-          <div class="btn-group" mdbDropdown>
-            <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{tema}}</button>
-            <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
-              mdbWavesEffect></button>
-            <div class="dropdown-menu">
-              <a (click)="getTema(i)" *ngFor="let element of listTemas, let i = index" class="dropdown-item">{{element.Nombre}}</a>          </div>
-          </div>
           <div class="white-text text-center wow fadeInUp">
-
+            
             <!--Material textarea-->
             <div class="md-form">
-              <textarea type="text" id="titulo" class="text-white form-control md-textarea" rows="3" mdbInput>{{titulo}}</textarea>
+              <textarea type="text" id="titulo" class="text-white form-control md-textarea" rows="1" mdbInput>{{titulo}}</textarea>
               <label for="titulo">Titulo</label>
             </div>   
 
             <div class="md-form">
-              <textarea type="text" id="abstract" class="text-white form-control md-textarea" rows="3" mdbInput>{{abstract}}</textarea>
+              <textarea type="text" id="abstract" class="text-white form-control md-textarea" rows="2" mdbInput>{{abstract}}</textarea>
               <label for="abstract">Abstract</label>
             </div>   
 
             <div class="md-form">
-              <textarea type="text" id="body" class="text-white form-control md-textarea" rows="3" mdbInput>{{body}}</textarea>
+              <textarea type="text" id="body" class="text-white form-control md-textarea" rows="2" mdbInput>{{body}}</textarea>
               <label for="body">Body</label>
             </div>      
 
+            <div class="btn-group" mdbDropdown>
+              <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{carrera}}</button>
+              <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
+                mdbWavesEffect></button>
+              <div class="dropdown-menu">
+                <a (click)="getCarrera(i)"  *ngFor="let element of listCarreras, let i = index" class="dropdown-item">{{element.Nombre}}</a>
+              </div>
+            </div>
+          
+            <div class="btn-group" mdbDropdown>
+              <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{curso}}</button>
+              <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
+                mdbWavesEffect></button>
+              <div class="dropdown-menu">
+                <a (click)="getCurso(i)" *ngFor="let element of listCursos, let i = index" class="dropdown-item">{{element.Nombre}}</a>            
+              </div>
+            </div>
+          
+            <div class="btn-group" mdbDropdown>
+              <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{tema}}</button>
+              <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
+                mdbWavesEffect></button>
+              <div class="dropdown-menu">
+                <a (click)="getTema(i)" *ngFor="let element of listTemas, let i = index" class="dropdown-item">{{element.Nombre}}</a>          
+              </div>
+            </div>
             <div class="list-group">
               <a *ngFor="let element of listAutores, let i = index" class="list-group-item list-group-item-dark black-text">{{element.carnet}}  
                 <button (click)='deleteAutor(i)' mdbBtn type="button" color="default" mdbWavesEffect><mdb-icon fas icon="trash" class="ml-1"></mdb-icon></button>
@@ -83,9 +85,8 @@
             
             <!--Modal-->
 
-            <button type="button" mdbBtn color="indigo" rounded="true" data-toggle="modal" data-target="#basicExample"
-  (click)="frame.show()" mdbWavesEffect>Agregar Co-autor</button>
-
+            <button type="button" mdbBtn color="indigo" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Agregar Co-autor</button>
+            
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -112,14 +113,16 @@
       <div class="modal-footer d-flex justify-content-center">
         <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Agregar</button>
       </div>
+
     </div>
   </div>
+  
+
 </div>
 
             <!--Boton listo-->
             <!-- Default unchecked -->
             <select class="browser-default custom-select" [(ngModel)]=visible>
-              <option selected>Visibilidad</option>
               <option value="true">Publico</option>
               <option value="false">Privado</option>
             </select>
@@ -128,9 +131,12 @@
 
             <br>
           </div>
+          
         </div>
       </div>
     </div>
+
   </div>
+  
   <!-- /.Main -->
 </header>

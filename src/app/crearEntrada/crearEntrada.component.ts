@@ -26,6 +26,9 @@ export class CrearEntradaComponent implements OnInit{
   public listAutores = [];
 
   public user: any[];
+  idCarrera = 0;
+  idCurso ="0";
+  idTema = 0;
 
   constructor(
     private apicomplementos: ApicomplementosService,
@@ -66,24 +69,26 @@ export class CrearEntradaComponent implements OnInit{
   }
 
   getCarrera(i){
-    this.carrera = this.listCarreras[i].IdCarrera;
+    this.idCarrera = this.listCarreras[i].IdCarrera;
+    this.carrera = this.listCarreras[i].Nombre;
   }
-
+  
   getCurso(i){
+    this.idCurso = this.listCursos[i].IdCurso;
     this.curso = this.listCursos[i].Nombre;
   }
-
+  
   getTema(i){
-    this.tema = this.listTemas[i].IdTema;
+    this.idTema = this.listTemas[i].IdTema;
+    this.tema = this.listTemas[i].Nombre;
   }
-
 //https://localhost:44395/api/Entrada?titulo=dad&Abstract=caca&Body=fafa&autores=2017&IdCarrera=carrera3&Curso=cursoY1&IdTema=carrera1 
   postEntry(){
     this.titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
     this.abstract = (<HTMLInputElement>document.getElementById('abstract')).value;
     this.body = (<HTMLInputElement>document.getElementById('body')).value;
 
-    this.apiEntradaPropia.postEntry(this.titulo, this.abstract, this.body, this.listAutores.join(), this.carrera, this.curso, this.tema).subscribe((reply:any) => {
+    this.apiEntradaPropia.postEntry(this.titulo, this.abstract, this.body, this.listAutores.join(), this.idCarrera, this.idCurso, this.idTema).subscribe((reply:any) => {
 
     });
   }

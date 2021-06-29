@@ -9,19 +9,19 @@ import { UserService } from '../services/login.service';
   styleUrls: ['./entradaPropia.component.scss']
 })
 export class EntradaPropiaComponent implements OnInit{
-  public abstract = ''
-  public body = ''
-  public carrera = ''
-  public curso = ''
-  public fechaCrear = ''
-  public fechaMod = ''
-  public idEntrada = ''
-  public tema = ''
-  public vistas = 0
-  public calificacion = ''
-  public listAutores = []
-  public listComentarios = []
-
+  public abstract = '';
+  public body = '';
+  public carrera = '';
+  public curso = '';
+  public fechaCrear = '';
+  public fechaMod = '';
+  public idEntrada = '';
+  public tema = '';
+  public vistas = 0;
+  public calificacion = '';
+  public listAutores = [];
+  public listComentarios = [];
+  public title  = '';
   public user: any[];
   
 
@@ -43,7 +43,7 @@ export class EntradaPropiaComponent implements OnInit{
   getEntry(){
     this.apiEntradaPropia.getEntry(this.idEntrada).subscribe((reply:any) => {
       console.log(reply);
-
+      this.title = reply.titulo;
       this.abstract = reply.Abstract;
       this.body = reply.Body;
       this.carrera = reply.Carrera;

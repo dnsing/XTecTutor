@@ -32,19 +32,22 @@
       <div style="margin-top: 100px">
         <mdb-icon fas icon="star" size="3x"></mdb-icon>    {{calificacion}}
         <mdb-icon fas icon="eye" size="3x"></mdb-icon>    {{vistas}}
-        
       </div>
       <div class="mask rgba-black-light flex-center ">
         <div class="container text-center white-text ">
+          <h2 class="text-center"> Ttítulo: {{title}}</h2>
           <div class="white-text text-center wow fadeInUp ">
-            <h2 class="text-center"> Autor </h2>
-            <h2 *ngFor="let element of listAutores" >{{element.nombre}} {{element.apellido}}</h2>
-            <div class="badge bg-dark text-wrap" style="width: 8rem;"><h2>{{carrera}}</h2></div>
-            <div class="badge bg-dark text-wrap" style="width: 8rem;"><h2>{{curso}}</h2></div>
-            <div class="badge bg-dark text-wrap" style="width: 5rem;">
-              <h2>{{tema}}</h2></div>
+            <h2 class="text-center"> Autor(es) </h2>
+            <p *ngFor="let element of listAutores" >{{element.nombre}} {{element.apellido}}</p>
+            <div class="badge bg-dark text-wrap" style="width: 8rem;"><p>{{carrera}}<p></div>
+            <div class="badge bg-dark text-wrap" style="width: 8rem;"><p>{{curso}}<p></div>
+            <div class="badge bg-dark text-wrap" style="width: 5rem;"><p>{{tema}}</p></div>
+
+            <h3 class="text-left"> Abstract </h3>
             <p class="text-justify"> {{abstract}} </p>
+            <h3 class="text-left"> Cuerpo </h3>
             <p class="text-justify"> {{body}} </p>
+            
             <p class="text-right">Fecha de creacion: {{fechaCrear}} </p>
               <div class="d-flex flex-column">
                 <div *ngFor="let element of listComentarios" class="p-2 mybackground">

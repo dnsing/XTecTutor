@@ -5,20 +5,24 @@
   <div style="text-align: center;">
     <div >
       <form [formGroup]="cambioContrForm" (submit)="onSubmit(cambioContrForm.value)" action=""> 
+        <mat-label class="title1">Clave nueva: </mat-label>
         <mat-form-field class="example-full-width" >
-          <mat-label class="title1">New Password</mat-label>
             <input class="title1" formControlName="newPassword" matInput type="Newpassword" [type]="hideNewPassword? 'password':'text' ">
             <i class="material-icons"  matSuffix (click)="hideNewPassword = !hideNewPassword">
               {{hideNewPassword? 'visibility':'visibility_off'}}
             </i>
         </mat-form-field> 
+        <mat-label class="title1">Verificar clave: </mat-label>
         <mat-form-field class="example-full-width" >
-          <mat-label class="title1">New Password Verify</mat-label>
+          
             <input class="title1" formControlName="newPasswordVerify" matInput type="NewPasswordVerify" [type]="hideNewPasswordVerify? 'password':'text' ">
             <i class="material-icons"  matSuffix (click)="hideNewPasswordVerify = !hideNewPasswordVerify">
               {{hideNewPasswordVerify? 'visibility':'visibility_off'}}
             </i>
         </mat-form-field>
+        <div>
+          <mat-label class="title1">La clave es de 8 caracteres alfanuméricos</mat-label>
+        </div>
         <div class="form-group">
           <input type="submit" value="Save" class="btn float-center login_btn">
           <div *ngIf="mostrarError()" class="tag">
@@ -29,7 +33,10 @@
         </div>  
       </form>
   </div>
-   <button class="login_btn1" (click)= "cambioContr(false)" > Cancel 
-  </button>
+  
+  <div>
+    <button class="login_btn1" (click)= "cambioContr(false)" > Cancel </button>
+  </div>
+   
   </div>
 </div>
