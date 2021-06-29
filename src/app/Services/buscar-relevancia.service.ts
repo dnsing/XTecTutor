@@ -9,9 +9,9 @@ import { stringify } from 'querystring';
   providedIn: 'root'
 })
 // Servicio de usuario
-export class busquedaFechaService {
+export class buscarRelevanciaService {
 
-  busquedaFechUrl: string = 'https://localhost:44395/api/BusquedasFecha'
+  busquedaFechUrl: string = 'https://localhost:44395/api/BusquedasRelevancia'
   /**
    * Creates an instance of user service.
    * @param http 

@@ -30,12 +30,8 @@
   </mdb-navbar>
 
   <div class="view ">
-    <div class="row"><p>hola</p></div>
-    <div class="row"><p>hola2</p></div>
-      
-
     <div class="row mybackground">
-      <div class="col align-self-center">
+      <div class="col align-self-center div2">
         <div class="btn-group" mdbDropdown>
           <button type="button" mdbBtn color="indigo" class="waves-light" mdbWavesEffect>{{carrera}}</button>
           <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
@@ -50,7 +46,8 @@
           <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
             mdbWavesEffect></button>
           <div class="dropdown-menu">
-            <<a (click)="getCurso(i)" *ngFor="let element of listCursos, let i = index" class="dropdown-item">{{element.Nombre}}</a>            </div>
+            <a (click)="getCurso(i)" *ngFor="let element of listCursos, let i = index" class="dropdown-item">{{element.Nombre}}</a>            
+          </div>
         </div>
 
         <div class="btn-group" mdbDropdown>
@@ -58,22 +55,29 @@
           <button type="button" mdbDropdownToggle mdbBtn color="indigo" class="dropdown-toggle dropdown-toggle-split px-3 waves-light"
             mdbWavesEffect></button>
           <div class="dropdown-menu">
-            <a (click)="getTema(i)" *ngFor="let element of listTemas, let i = index" class="dropdown-item">{{element.Nombre}}</a>          </div>
+            <a (click)="getTema(i)" *ngFor="let element of listTemas, let i = index" class="dropdown-item">{{element.Nombre}}</a>          
+          </div>
         </div>
+        <form [formGroup]="fechaForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="fecha">Fecha max: </label>
+            <input type="date" class="form-control" formControlName="fecha" id="fecha" required>
+        </div>
+        </form>
         <div class="white-text text-center wow fadeInUp">
         </div>
-        <div><button class="button2" (click)= "buscar()" > Buscar</button></div>
-        <div *ngIf(mostrarentrada())>
+        <div>
+          <button class="button2" (click)= "buscar()" > Buscar</button>
+        </div>
+        <div *ngIf = "mostrarentrada()">
           <div *ngFor="let elemento of e3; let i = index">
           <div class="infoEst">Título: {{e3[i].titulo}} </div>
           <div class="infoEst">Vistas: {{e3[i].Vistas}} </div>
-          <div class="infoEst">Calificación: {{e3[i].calificacion}} </div>
+          <div class="infoEst">Calificación: {{e3[i].CalificacionProm}} </div>
           <div class="infoEst">Carrera: {{e3[i].Carrera}} </div>
           <div class="infoEst">Curso: {{e3[i].Curso}} </div>
           <div class="infoEst">Tema: {{e3[i].Tema}} </div>
-          <div class="infoEst">Visible: {{e3[i].Visible}} </div>
           <div class="infoEst">FechaCreación: {{e3[i].FechaCrear}} </div>
-          <div class="infoEst">Visible: {{e3[i].Visible}} </div>
 
           <button class="button2" (click)= "verEntrada(e3[i].IdEntrada)" > Ver entrada</button>
           </div>

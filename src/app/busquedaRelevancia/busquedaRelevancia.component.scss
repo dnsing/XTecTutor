@@ -3,21 +3,36 @@
   background-size: cover;
   height: 100vh;
 }
-.login_btn{
-  color: black;
-  background-color: #f5f5f5;
-  width: 100px;
-  }
-  
-  .login_btn:hover{
-  color: black;
-  background-color: rgb(211, 211, 211);
-  }
-  .listEntradas{
-    background-color: lightgrey;
-    color: black;
-    opacity: 0.5;
-    width: 100px; height: 100px;
-    
-
+.div2{
+  padding-top:150px
 }
+
+.button1 {
+  background-color:rgb(255, 255, 255) ;
+  color: black;
+  border: 2px solid #000000;
+  border-radius: 8px;
+}
+.button1:hover{
+  color: black;
+  background-color: rgb(156, 255, 143);
+  border-radius: 8px;
+  }
+  .button2 {
+    background-color:rgb(255, 255, 255) ;
+    color: black;
+    border: 2px solid #000000;
+    border-radius: 8px;
+  }
+  .button2:hover{
+    color: black;
+    background-color: rgb(131, 184, 253);
+    border-radius: 8px;
+    }
+  .mybackground{
+    background-color: rgba(17, 17, 17, 0.699);
+    color: white;
+  }
+  .infoEst{
+    color: white;
+  }
